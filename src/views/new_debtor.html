@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=divice-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>RODE</title>
+    <link rel="stylesheet" href="">
+    <link rel="stylesheet" href="../../node_modules/bootstrap/dist/css/bootstrap.css">
+</head>
+
+<body>
+    <div class="container">
+        <h1 class="text-center mb-4">Agregar nuevo deudor</h1>
+        <input class="form-control form-control-sm mb-3" type="text" placeholder="Nombre" aria-label="default input example">
+        <input class="form-control form-control-sm mb-3" type="text" placeholder="Apellido" aria-label="default input example">
+        <div class="mb-3">
+            <textarea class="form-control" id="exampleFormControlTextarea1" rows="3" placeholder="Descripción de deuda"></textarea>
+        </div>
+        <input class="form-control form-control-sm mb-3" aria-label="default input example" type="text" id="importe" onblur="calcular();" name="importe" size="21" maxlength="21" onkeypress="mascara(this,cpf)" onpaste="return false" placeholder="Monto">
+        <div class="container px-4 ">
+            <div class="row gx-5">
+                <div class="col ml-4">
+                    <button type="button" class="btn btn-primary ">Guardar</button>
+                </div>
+                <div class="col ml-2">
+                    <button type="button" class="btn btn-danger">Cancelar</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+<script src="../js/script.js" type="text/javascript"></script>
+
+</html>
