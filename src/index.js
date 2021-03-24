@@ -15,11 +15,11 @@ let mainWindow;
 let newDebtor;
 
 app.on('ready', () =>{
-	mainWindow = new BrowserWindow({});
+	mainWindow = new BrowserWindow({ });
 	mainWindow.loadURL(url.format({
 		pathname: paht.join(__dirname,'views/index.html'),
 		protocol: 'file',
-		slashes: true
+		slashes: true,
 	}));
 
 	const mainMenu = Menu.buildFromTemplate(templateMenu);
@@ -30,10 +30,9 @@ app.on('ready', () =>{
 	})
 });
 
-
 function addNewDebtor() {
 	newDebtor = new BrowserWindow({
-		width: 550,
+		width: 600,
 		height: 550,
 		titel: 'Agregar nuevo deudor'
 

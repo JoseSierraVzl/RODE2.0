@@ -1,22 +1,54 @@
 <!DOCTYPE html>
 <html lang="es">
+   <head>
+	  <meta charset="utf-8">
+	  <meta name="viewport" content="width=divice-width, initial-scale=1.0">
+	  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+	  <title>RODE</title>
+	  <link rel="stylesheet" href="../../node_modules/bootstrap/dist/css/bootstrap.min.css">
+	  <link rel="stylesheet" href="../css/styles.css">
+   </head>
 
-<head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=divice-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <title>RODE</title>
-    <link rel="stylesheet" href="">
-    <link rel="stylesheet" href="../../node_modules/bootstrap/dist/css/bootstrap.css">
-</head>
+   <body>
 
-<body>
-    <div class="container">
-        <h1 class="text-center">RODE 2.0</h1>
-        <div class="text-center">
-            <button type="button" class="btn btn-primary">Aceptar</button>
-        </div>
-    </div>
-</body>
+	  <nav class="side-navbar active-nav d-flex justify-content-between flex-wrap flex-column" id="sidebar">
+		 <div class="nav flex-column text-white w-100">
+			<h4 class="text-center font-weight-bold pt-3 menu">MENÚ </h4>
+			<div class="py-4"></div>
+			<button type="button" class="font-weight-bold boton-sidebar btn py-2" id="abrirVentana">AGREGAR
+				<i class="fas fa-user-plus fa-lg mx-2 coloreado"></i>
+			</button>
+			<button type="button" class="font-weight-bold boton-sidebar btn py-2">ELIMINAR
+				<i class="fas fa-user-times fa-lg mx-2 coloreado"></i>
+			</button>
+			<button type="button" class="font-weight-bold boton-sidebar btn py-2">VISUALIZAR
+				<i class="fas fa-clipboard-list fa-lg mx-2 coloreado"></i>
+			</button>
+			<button type="button" class="font-weight-bold boton-sidebar btn py-2">Acerca de...
+				<i class="fas fa-comments fa-lg mx-2 coloreado"></i>
+			</button>
+			<p class="menu pt-5 text-center font-italic px-2">Copyright ©2021 Todos los derechos reservados</p>
+		 </div>
+	  </nav>
 
+	  <div class="my-container active-cont pt-5">
+		 <a class="btn " id="menu-btn">
+		 <i class="fas fa-angle-double-right fa-lg coloreado"></i>
+		 </a>
+	  </div>
+
+	  <div class="d-flex align-items-center tamaño-minimo">
+		 <div class="container text-center">
+			<h1 class="text-white font-weight-bold">RODE</h1>
+			<p class="texto-cyan font-weight-bold">LA MEJOR APP PARA ORDENAR TU VIDA</p>
+			<button type="button" class="btn boton font-weight-bold" >ACEPTAR</button>
+		 </div>
+	  </div>
+
+
+	<script src="../js/script.js"></script>
+   	<script src="../../node_modules/bootstrap/dist/js/bootstrap.min.js"></script>
+   	<script defer src="../../fontawesome-free-5.15.3-web/js/all.js"></script>
+   </body>
 </html>
+
