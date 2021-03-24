@@ -1,2 +1,9 @@
-# RODE2.0
-App de Desktop para mantener el registro ordenado de deudores.
+# RODE2.0 📄📄
+App de escritorio hecha con NodeJS y ElectronJS para mantener el registro ordenado de deudores.
+
+![imagen1](https://github.com/JoseSierraVzl/Proyecto-VESOR/blob/master/screenshot/RODE2.png)
+
+
+## Autores ✒️
+* **José Alejandro**- *Trabajo Inicial* - [JoseSierraVzl](https://github.com/JoseSierraVzl)
+* **Cristian Cala**- *Trabajo Inicial* - [CristianCala](https://github.com/CristianCala)
