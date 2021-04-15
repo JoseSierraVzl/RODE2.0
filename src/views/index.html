@@ -1,54 +1,143 @@
 <!DOCTYPE html>
 <html lang="es">
-   <head>
-	  <meta charset="utf-8">
-	  <meta name="viewport" content="width=divice-width, initial-scale=1.0">
-	  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-	  <title>RODE</title>
-	  <link rel="stylesheet" href="../../node_modules/bootstrap/dist/css/bootstrap.min.css">
-	  <link rel="stylesheet" href="../css/styles.css">
-   </head>
 
-   <body>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=divice-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>RODE</title>
+    <link rel="stylesheet" href="../../node_modules/bootstrap/dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="../css/styles.css">
+</head>
 
-	  <nav class="side-navbar active-nav d-flex justify-content-between flex-wrap flex-column" id="sidebar">
-		 <div class="nav flex-column text-white w-100">
-			<h4 class="text-center font-weight-bold pt-3 menu">MENÚ </h4>
-			<div class="py-4"></div>
-			<button type="button" class="font-weight-bold boton-sidebar btn py-2" id="abrirVentana">AGREGAR
-				<i class="fas fa-user-plus fa-lg mx-2 coloreado"></i>
-			</button>
-			<button type="button" class="font-weight-bold boton-sidebar btn py-2">ELIMINAR
-				<i class="fas fa-user-times fa-lg mx-2 coloreado"></i>
-			</button>
-			<button type="button" class="font-weight-bold boton-sidebar btn py-2">VISUALIZAR
-				<i class="fas fa-clipboard-list fa-lg mx-2 coloreado"></i>
-			</button>
-			<button type="button" class="font-weight-bold boton-sidebar btn py-2">Acerca de...
-				<i class="fas fa-comments fa-lg mx-2 coloreado"></i>
-			</button>
-			<p class="menu pt-5 text-center font-italic px-2">Copyright ©2021 Todos los derechos reservados</p>
-		 </div>
-	  </nav>
-
-	  <div class="my-container active-cont pt-5">
-		 <a class="btn " id="menu-btn">
-		 <i class="fas fa-angle-double-right fa-lg coloreado"></i>
-		 </a>
-	  </div>
-
-	  <div class="d-flex align-items-center tamaño-minimo">
+<body>
+    <nav class="side-navbar active-nav d-flex justify-content-between flex-wrap flex-column" id="sidebar">
+        <div class="nav flex-column text-white w-100">
+            <h4 class="text-center font-weight-bold pt-3 menu">MENÚ </h4>
+            <div class="py-4"></div>
+            <button type="button" class="font-weight-bold boton-sidebar btn py-2" id="abrirVentana">AGREGAR
+                <i class="fas fa-user-plus fa-lg mx-2 coloreado"></i>
+            </button>
+            <button type="button" class="font-weight-bold boton-sidebar btn py-2">ELIMINAR
+                <i class="fas fa-user-times fa-lg mx-2 coloreado"></i>
+            </button>
+            <button type="button" class="font-weight-bold boton-sidebar btn py-2">VISUALIZAR
+                <i class="fas fa-clipboard-list fa-lg mx-2 coloreado"></i>
+            </button>
+            <button type="button" class="font-weight-bold boton-sidebar btn py-2">Acerca de...
+                <i class="fas fa-comments fa-lg mx-2 coloreado"></i>
+            </button>
+            <p class="menu pt-5 text-center font-italic px-2">Copyright ©2021 Todos los derechos reservados</p>
+        </div>
+    </nav>
+    <div class="my-container active-cont pt-5">
+        <a class="btn " id="menu-btn">
+            <i class="fas fa-angle-double-right fa-lg coloreado"></i>
+        </a>
+    </div>
+    <div class="container p-4">
+        <div class="row" id="debtor"></div>
+    </div>
+    <!--<div class="d-flex align-items-center tamaño-minimo bienvenida">
 		 <div class="container text-center">
 			<h1 class="text-white font-weight-bold">RODE</h1>
-			<p class="texto-cyan font-weight-bold">LA MEJOR APP PARA ORDENAR TU VIDA</p>
-			<button type="button" class="btn boton font-weight-bold" >ACEPTAR</button>
+			<p class="texto-cyan font-weight-bold">LA MEJOR APP PARA ORGANIZAR TUS DEUDORES</p>
 		 </div>
-	  </div>
+	  </div>-->
+    <script src="../js/script.js"></script>
+    <script src="../../node_modules/bootstrap/dist/js/bootstrap.min.js"></script>
+    <script defer src="../../fontawesome-free-5.15.3-web/js/all.js"></script>
+    <script>
+    const { ipcRenderer } = require('electron');
+    const sqlite3 = require('sqlite3').verbose();
+    const fs = require('fs');
+
+    const debtor = document.querySelector('#debtor');
 
 
-	<script src="../js/script.js"></script>
-   	<script src="../../node_modules/bootstrap/dist/js/bootstrap.min.js"></script>
-   	<script defer src="../../fontawesome-free-5.15.3-web/js/all.js"></script>
-   </body>
+
+    function deleteDebtor(name) {
+        var base_datos = new sqlite3.Database('src/db/debtor.db');
+                        const nombreApellido = document.querySelectorAll('.card-title').value;
+
+        base_datos.serialize(function() {
+        	base_datos.run('DELETE FROM debtor WHERE nombre_apellido = ?', name)
+        });
+        base_datos.close();
+
+    };
+
+
+    // Consultando base de datos
+    function selectDb() {
+        var base_datos = new sqlite3.Database('src/db/debtor.db');
+
+        base_datos.serialize(function() {
+
+            base_datos.each("SELECT rowid AS id, nombre_apellido, description, monto FROM debtor", function(err, debtorDB) {
+                const id = debtorDB.id;
+                const nombre_apellido = debtorDB.nombre_apellido;
+                const description = debtorDB.description;
+                const monto = debtorDB.monto;
+
+                const newDebtorTemplate = `
+					        <div class = "col-xs-4 p-2 ">
+					        		<p class="text-center id-card box-shadow">${id}</p>
+					        	<div class="card text-center box-shadow">
+					        		<div class="card-header">
+					        			<h5 class="card-title">${nombre_apellido}</h5>
+					       			</div>
+					        		<div class="card-body">
+					       				<p class="text-break">${description}</p>
+					        			<hr/>
+					        			<p>${monto}</p>
+					        		</div>
+					        		<div class="card-footer">
+					        			<button class="btn btn-danger btn-sm">ELIMINAR</button>
+					        		</div>
+					       		 </div>
+					        </div>`;
+                debtor.innerHTML += newDebtorTemplate;
+                const btnDelate = document.querySelectorAll('.btn.btn-danger.btn-sm');
+                btnDelate.forEach(btn => {
+                    btn.addEventListener('click', e => {
+                        console.log("ELMINAR ACTIVO")
+                        deleteDebtor(nombreApellido)
+                        var cls = setTimeout(function cls(){ipcRenderer.send('reload:index');}, 3000)
+                        
+
+                        e.target.parentElement.parentElement.parentElement.remove();
+                    });
+                });
+            });
+            base_datos.close();
+        })
+    };
+
+    setTimeout(selectDb, 2000);
+    /*ipcRenderer.on('debtor:new', (e, new_Debtor) => {
+
+        const newDebtorTemplate = `
+			        <div class = "col-xs-4 p-2">
+			        	<div class="card text-center">
+			        		<div class="card-header">
+			        			<h5 class="card-title">${new_Debtor.name}</h5>
+			       			</div>
+			        		<div class="card-body">
+			       				<p>${new_Debtor.description}</p>
+			        			<hr/>
+			        			<p>${new_Debtor.monto}</p>
+			        		</div>
+			        		<div class="card-footer">
+			        			<button class="btn btn-danger btn-sm">ELIMINAR</button>
+			        		</div>
+			       		 </div>
+			        </div>`;
+
+        debtor.innerHTML += newDebtorTemplate;
+
+    });*/
+    </script>
+</body>
+
 </html>
-
