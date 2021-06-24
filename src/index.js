@@ -10,7 +10,7 @@ if (process.env.NODE_ENV !== 'production') {
     })
 };
 
-
+// Cuando la ventana aún no cargue
 let mainWindow;
 let newDebtor;
 
@@ -38,33 +38,32 @@ app.on('ready', () => {
     })
 });
 
-function addNewDebtor() {
-    newDebtor = new BrowserWindow({
-        width: 600,
-        height: 550,
-        titel: 'Agregar nuevo deudor',
-        backgroundColor: '#32425B',
-        webPreferences: {
-            nodeIntegration: true,
-            contextIsolation: false,
-            enableRemoteModule: true,
-        }
 
-    });
+// Ventana de agregar nuevo deudor
+// function addNewDebtor() {
+//     newDebtor = new BrowserWindow({
+//         width: 600,
+//         height: 550,
+//         titel: 'Agregar nuevo deudor',
+//         backgroundColor: '#32425B',
+//         webPreferences: {
+//             nodeIntegration: true,
+//             contextIsolation: false,
+//             enableRemoteModule: true,
+//         }
 
-  // newDebtor.setMenu(null);
+//     });
 
-    newDebtor.loadURL(url.format({
-        pathname: paht.join(__dirname, 'views/new_debtor.html'),
-        protocol: 'file',
-        slashes: true
-    }));
+//     newDebtor.loadURL(url.format({
+//         pathname: paht.join(__dirname, 'views/new_debtor.html'),
+//         protocol: 'file',
+//         slashes: true
+//     }));
 
-    newDebtor.on('closed', () => {
-        newDebtor = null;
-    });
-}
-
+//     newDebtor.on('closed', () => {
+//         newDebtor = null;
+//     });
+// }
 
 
 ipcMain.on('reload:index', (e) =>{
@@ -78,18 +77,10 @@ ipcMain.on('debtor:new', (e) =>{
 	//newDebtor.close();
 })
 
-
+// Agregado al templatemenu
 const templateMenu = [{
     label: 'File',
     submenu: [{
-            label: 'Nuevo Deudor',
-            accelerator: 'Ctrl+N',
-            click() {
-                addNewDebtor();
-            }
-        },
-
-        {
             label: 'Exit',
             accelerator: process.platform == 'darwin' ? 'command+Q' : 'Ctrl+Q',
             click() {
@@ -99,6 +90,12 @@ const templateMenu = [{
     ]
 }];
 
+// Eliminado del templateMenu()
+            // label: 'Nuevo Deudor',
+            // accelerator: 'Ctrl+N',
+            // click() {
+            //     addNewDebtor();
+            // }
 if (process.platform === 'darwin') {
     templateMenu.unshift({
         label: app.getName()

@@ -3,8 +3,6 @@
 	margin:0;
 	padding: 0;
 	box-sizing: border-box; 
-	-webkit-box-sizing: border-box;
-	-moz-box-sizing: border-box;
 	font-family: Roboto;
 }
 /*Paleta Colores*/
@@ -25,85 +23,29 @@ a:hover {
 }
 
 .texto-cyan {
-	color: var(--main-cyan) ;
+	color: var(--cyan-ligth) ;
 }
 
 .coloreado{
 	color: var(--cyan-dark);
 }
+
 .boton{
-	background-color: var(--cyan-ligth);
-	border:  solid 1px var(--main-cyan);
-	border-radius: 3px  !important;
 	color: var(--cyan-dark);
+	border-radius: 6px;
+	background: var(--main-cyan);
+	}
+
+.boton:hover{
+	box-shadow: 0 0 10px #107e6d, 
+	0 0 20px #26ffff, 0 0 100px #26ffff !important;
+	background-color: transparent;
+	border: solid 2px var(--cyan-ligth);
+	color: white; 
 }
 
 .boton-rojo{
 	background-color: var(--pastel-red);
-}
-
-.boton-sidebar{
-	background-color: transparent;
-	color: var(--cyan-dark);
-	border-bottom: 1px solid var(--grey-ligth);
-}
-
-.boton-sidebar:focus{
-	border-left: 6px solid var(--main-cyan);
-	box-shadow: 0 0 0 0.1rem var(--grey-ligth);
-}
-.menu{
-	color: var(--cyan-dark);
-}
-
-.tamaño-minimo{
-	min-height: 70vh !important ;
-}
-
-.side-navbar {
-  width: 25%;
-  max-width: 180px;
-  height: 100%;
-  position: fixed;
-  margin-left: -30%;
-  background-color: white;
-  transition: 0.4s;
-  border-top-right-radius: 30px;
-  border-bottom-right-radius: 30px;
-}
-
-.my-container {
-  transition: 0.4s;
-}
-
-.active-nav {
-  margin-left: 0;
-}
-
-.active-cont {
-  margin-left: 180px;
-}
-
-#menu-btn {
-	background-color: white;
-	border-top-right-radius: 30px;
-	border-bottom-right-radius: 30px;
-	position: fixed;
-	height: 40px;
-	width: 200px;
-}
-
-@media (min-width: 1px) and (max-width: 599px){
-	#menu-btn{
-		margin-left: -20%;
-	}
-}
-
-@media (min-width: 600px) and (max-width: 1080px){
-
-	#menu-btn{
-		margin-left: -10%;
-	}
 }
 
 hr{
@@ -124,7 +66,6 @@ textarea::placeholder{
 
 input::placeholder{
 	color: var(--grey-ligth) !important;
-
 }
 
 .id-card{
@@ -136,7 +77,6 @@ input::placeholder{
 	height: 40px;
 	margin-left: auto;
 	margin-right: auto;
-
 }
 
 .box-shadow{
