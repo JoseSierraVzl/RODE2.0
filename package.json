@@ -10,6 +10,8 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
+    "@fortawesome/fontawesome-free": "^5.15.4",
+    "@popperjs/core": "^2.9.3",
     "bootstrap": "^5.1.0",
     "electron": "^13.1.9",
     "electron-reload": "^1.5.0",
