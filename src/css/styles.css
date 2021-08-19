@@ -2,7 +2,6 @@
 	margin:0;
 	padding: 0;
 	box-sizing: border-box; 
-	font-family: Roboto;
 }
 /*Paleta Colores*/
 :root{
@@ -76,8 +75,4 @@ input::placeholder{
 	height: 40px;
 	margin-left: auto;
 	margin-right: auto;
-}
-
-.box-shadow{
-	box-shadow: 10px 5px 5px rgba(0, 0, 0, 0.3);
 }
