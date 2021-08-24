@@ -3,7 +3,7 @@
 .boton-sidebar{
 	background-color: transparent;
 	color: white;
-	border-bottom: 1px solid gray;
+	border-bottom: 1px solid var(--cyan-ligth);
 }
 
 .boton-sidebar:focus{

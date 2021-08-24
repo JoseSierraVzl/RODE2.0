@@ -16,8 +16,8 @@ body{
 	background-color: var(--cyan-dark);
 }
 
-a:hover {
-	text-decoration: none;
+a{
+	text-decoration: none!important;
 }
 
 .texto-cyan {

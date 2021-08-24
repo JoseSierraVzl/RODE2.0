@@ -1,0 +1,27 @@
+project/
+  config/
+    routes.js
+    settings.js
+    index.js
+  controllers/
+    index.js
+    movies.js
+  models/
+    index.js
+    movie.js
+  repositories/
+    index.js
+    movie.js
+  views/
+    index.jade
+    movies/
+      index.jade
+  tests/
+    controllers/
+      index.js
+    models/
+      index.js
+    repositories/
+      index.js
+  index.js
+  package.json
