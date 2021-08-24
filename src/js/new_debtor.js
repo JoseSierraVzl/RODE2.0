@@ -19,7 +19,6 @@ function execmascara() {
     v_obj.value = v_fun(v_obj.value);
 }
 
-
     const { ipcRenderer } = require('electron');
     const sqlite3 = require('sqlite3').verbose();
     const fs = require('fs');
