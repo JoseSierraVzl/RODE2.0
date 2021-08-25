@@ -38,34 +38,6 @@ app.on('ready', () => {
     })
 });
 
-
-// Ventana de agregar nuevo deudor
-// function addNewDebtor() {
-//     newDebtor = new BrowserWindow({
-//         width: 600,
-//         height: 550,
-//         titel: 'Agregar nuevo deudor',
-//         backgroundColor: '#32425B',
-//         webPreferences: {
-//             nodeIntegration: true,
-//             contextIsolation: false,
-//             enableRemoteModule: true,
-//         }
-
-//     });
-
-//     newDebtor.loadURL(url.format({
-//         pathname: paht.join(__dirname, 'views/new_debtor.html'),
-//         protocol: 'file',
-//         slashes: true
-//     }));
-
-//     newDebtor.on('closed', () => {
-//         newDebtor = null;
-//     });
-// }
-
-
 ipcMain.on('reload:index', (e) =>{
 	mainWindow.reload()
 })
@@ -90,12 +62,6 @@ const templateMenu = [{
     ]
 }];
 
-// Eliminado del templateMenu()
-            // label: 'Nuevo Deudor',
-            // accelerator: 'Ctrl+N',
-            // click() {
-            //     addNewDebtor();
-            // }
 if (process.platform === 'darwin') {
     templateMenu.unshift({
         label: app.getName()
