@@ -1,6 +1,6 @@
 @import url(styles.css);
 
-.boton-sidebar{
+/*.boton-sidebar{
 	background-color: transparent;
 	color: white;
 	border-bottom: 1px solid var(--cyan-ligth);
@@ -68,4 +68,4 @@
 .navbar-footer{
 	position: absolute;
 	bottom: 0;
-}
+}*/

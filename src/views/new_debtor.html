@@ -1,51 +1,14 @@
 <!DOCTYPE html>
 <html lang="es">
-
-<head>
+	<head>
 		<meta charset="utf-8">
 		<meta name="viewport" content="width=divice-width, initial-scale=1.0">
 		<meta http-equiv="X-UA-Compatible" content="IE=edge">
 		<title>Nuevo deudor</title>
-		<link rel="stylesheet" href="../../node_modules/bootstrap/dist/css/bootstrap.min.css">
-		<link rel="stylesheet" href="../css/styles.css">
-</head>
+	</head>
+	<body>
 
-<body>
-		<main class="container">
-				<h2 class=" pt-3 text-center text-white font-weight-bold">NUEVO DEUDOR</h2>
-				<div class="container">
-						<div class="row">
-								<div class="col-3"></div>
-								<div class="col-6">
-										<hr>
-								</div>
-								<div class="col-3"></div>
-						</div>
-				</div>
-				<form class="p-4" id="form-NewDebtor">
-						<div class="form-group">
-								<h5 class="text-white">Nombre y Apellido</h5>
-								<input class="form-control" type="text" placeholder="Nombre y Apellido" autofocus id="nameDebtor">
-						</div>
-						<div class="form-group">
-								<h5 class="text-white">Descripción</h5>
-								<textarea class="form-control" id="descriptionDebtor" rows="3" placeholder="Descripción de deuda"></textarea>
-						</div>
-						<div class="form-group">
-								<h5 class="text-white pt-2">Monto</h5>
-								<input class="form-control" aria-label="default input example" type="number" pattern="[0-9]" id="montoDebtor" size="21" minlength="1" maxlength="21" onkeypress="mascara(this,cpf)" placeholder="Monto en $">
-						</div>
-						<div class="row mt-4">
-							<div class="col-8">
-								<button type="submit" class="btn container-fluid boton fw-bold">GUARDAR</a>
-							</div>
-							<div class="col-4">
-								<button class="btn container-fluid boton-rojo fw-bold" type="button">CANCELAR</button>
-							</div>
-						</div>
-				</form>
-		</main>
-		<script src="../js/main.js"></script>
+	</main>
+	<script type="module" src="../js/main.js"></script>
 </body>
-
 </html>

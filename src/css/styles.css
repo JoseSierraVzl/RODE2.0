@@ -4,7 +4,7 @@
 	box-sizing: border-box; 
 }
 /*Paleta Colores*/
-:root{
+/*:root{
 	--main-cyan: #00BFA5;
 	--cyan-ligth: #1BD6B9;
 	--cyan-dark: #32425B;
@@ -76,3 +76,4 @@ input::placeholder{
 	margin-left: auto;
 	margin-right: auto;
 }
+*/
