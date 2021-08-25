@@ -61,9 +61,11 @@
 	transition: all 0.3s;
 }
 
-.neuro-box{
-	border-radius: 6px;
-	background: linear-gradient(145deg, #2d3b52, #364761);
-	box-shadow:  10px 10px 30px #1e2736,
-	             -10px -10px 30px #475d80;
+.relative:{
+	position: relative;
+}
+
+.navbar-footer{
+	position: absolute;
+	bottom: 0;
 }
